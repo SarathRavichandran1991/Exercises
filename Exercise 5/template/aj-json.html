@@ -1,0 +1,28 @@
+<head>	
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
+</head>    
+  <html><body>
+  <h1>Golang Ajax call for list of prime numbers</h1>
+ 
+  <input id='ajax_txt' type='text' value='13'>
+  <input id='ajax_btn' type='button' value='POST via AJAX to Golang server'>		
+  
+  <div id='result'><h3></h3></div><br><br>
+  </body></html>
+
+   <script>
+   $(document).ready(function () { 
+         $('#ajax_btn').click(function () {
+             $.ajax({
+               url: 'receive',
+               type: 'post',
+               dataType: 'html',
+               data : { postdata: $('#ajax_txt').val()},
+               success : function(data) {
+                 alert('ajax data posted');
+                 $('#result').html(data);
+               },
+             });
+          });
+    });
+    </script>

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+</head>
+<body>
+    <h1>Golang request/response example</h1>
+
+    <div id='response'><h3></h3></div><br><br>
+
+    <input id='ajax_dt' type='date'>
+    <input id='ajax_btn' type='button' value='POST'>       
+</body>
+</html>
+<script>
+    $(document).ready(function () { 
+          $('#ajax_btn').click(function () {
+            $.ajax({
+                url: '/ajax',
+                type: "post",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ Date: $('#ajax_dt').val()}),
+                dataType: 'html',
+                success: function(data) {
+                    alert('ajax data posted');
+                    $('#response').html(data);
+                }                                                                                                                                                                                     
+            });
+           });
+     });
+</script>`
